@@ -65,3 +65,15 @@ a{
 .open ul li:hover{
   background: rgba(0,0,0,0.15);
 }
+
+.open ul a:nth-child(1) li{
+  margin-top: 1em;
+}
+
+.close{
+  font-size: 1.2em;
+  cursor: pointer;
+  float: right;
+}
+
+.close:hover

@@ -10,8 +10,9 @@
       Open Sidebar
     </div>
     <div class="nav">
+      <span class="close">&times;</span>
       <ul>
-        <a href=""><li>Input Animations</li></a>
+        <a href="input.html"><li>Input Animations</li></a>
         <a href=""><li>Button Animations</li></a>
       </ul>
     </div>
@@ -21,6 +22,12 @@
     sidebarElement.addEventListener('click',function(){
       const navElem = document.getElementsByClassName('nav')[0];
       navElem.classList.add('open');
+    });
+
+    const closeElement = document.getElementsByClassName('close')[0];
+    closeElement.addEventListener('click',function(){
+      const navElem = document.getElementsByClassName('nav')[0];
+      navElem.classList.remove('open');
     });
   </script>
 </html>

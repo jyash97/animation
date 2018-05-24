@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Animations And Transitions</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="sidebar">
+      Open Sidebar
+    </div>
+    <div class="nav">
+      <ul>
+        <a href=""><li>Input Animations</li></a>
+        <a href=""><li>Button Animations</li></a>
+      </ul>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const sidebarElement = document.getElementsByClassName('sidebar')[0];
+    sidebarElement.addEventListener('click',function(){
+      const navElem = document.getElementsByClassName('nav')[0];
+      navElem.classList.add('open');
+    });
+  </script>
+</html>

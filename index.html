@@ -9,7 +9,12 @@
     <div class="sidebar">
       Open Sidebar
     </div>
-    <div class="nav">
+    <h4>Choose Animations</h4>
+    <select>
+      <option value="ellipse">Ellipse</option>
+      <option value="circle" selected>Circle</option>
+    </select>
+    <div class="nav circle">
       <span class="close">&times;</span>
       <ul>
         <a href="input.html"><li>Input Animations</li></a>
@@ -28,6 +33,18 @@
     closeElement.addEventListener('click',function(){
       const navElem = document.getElementsByClassName('nav')[0];
       navElem.classList.remove('open');
+    });
+
+    const selectElem = document.getElementsByTagName('select')[0];
+    selectElem.addEventListener('change',function(){
+      const navElem = document.getElementsByClassName('nav')[0];
+      if(this.value === 'circle'){
+        navElem.classList.remove('ellipse');
+        navElem.classList.add('circle');
+      }else{
+        navElem.classList.remove('circle');
+        navElem.classList.add('ellipse');
+      }
     });
   </script>
 </html>

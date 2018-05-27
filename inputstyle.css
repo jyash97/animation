@@ -9,8 +9,10 @@ h2{
   font-family: cursive;
 }
 
-.animinput{
+.animinput,.anim1{
   padding: 1em;
+  position: relative;
+  overflow: hidden;
 }
 
 .animinput .left,.right,.center,.bottom{
@@ -61,4 +63,141 @@ h2{
 
 ::placeholder{
   color: rgba(51,51,51,.6);
+}
+
+.anim1 .oi,.io{
+  padding: .5em;
+  width: 50%;
+  margin: 1em;
+  font-size: 1.1em;
+  outline: 0;
+  color: rebeccapurple;
+  border: 0;
+  transition: box-shadow ease .4s;
+  box-shadow:0px 0px 5px 1px rgba(51,51,51,.1), 1px 1px 5px -1px rgba(51,51,51,.2);
+}
+
+.anim1 .io{
+  box-shadow: 0px 0px 1px 1px rgba(102, 51, 153,1);
+}
+
+@keyframes focused {
+  0%{
+    box-shadow: 0px 0px 25px 12px rgba(102, 51, 153,.4);
+  }
+  50%{
+    box-shadow: 0px 0px 20px 10px rgba(102, 51, 153,.3);
+  }
+  75%{
+    box-shadow: 0px 0px 15px 8px rgba(102, 51, 153,.2);
+  }
+  100%{
+    box-shadow: 0px 0px 10px 6px rgba(102, 51, 153,.1);
+  }
+}
+
+@keyframes unfocus {
+  0%{
+    box-shadow: 0px 0px 10px 6px rgba(102, 51, 153,.4);
+  }
+  50%{
+    box-shadow: 0px 0px 15px 8px rgba(102, 51, 153,.3);
+  }
+  75%{
+    box-shadow: 0px 0px 20px 10px rgba(102, 51, 153,.2);
+  }
+  100%{
+    box-shadow: 0px 0px 25px 12px rgba(102, 51, 153,.1);
+  }
+}
+
+.anim1 .oi:focus{
+  animation: focused .3s;
+  box-shadow: 0px 0px 1px 1px rgba(102, 51, 153,1);
+}
+
+.anim1 .io:focus{
+  animation: unfocus .3s;
+  box-shadow:0px 0px 5px 1px rgba(51,51,51,.1), 1px 1px 5px -1px rgba(51,51,51,.2);
+}
+
+.anim2{
+  padding: 1em;
+}
+
+.anim2 .ba{
+  border: 0;
+  padding: .5em;
+  width: 50%;
+  margin: 1em;
+  font-size: 1.1em;
+  outline: 0;
+  color: rebeccapurple;
+  background: rgba(0,0,0,0) no-repeat;
+	background-size: 100%;
+	background-position: 100vh;
+  transition: all 0.3s cubic-bezier(.22,.6,.81,.4);
+	background-image: linear-gradient(to top, rgba(102, 51, 153,.05), transparent);
+  transition: all ease .4s;
+  box-shadow:0px 0px 5px 1px rgba(51,51,51,.1), 1px 1px 5px -1px rgba(51,51,51,.2);
+}
+
+.anim2 .ba:focus{
+  background-position: 0vh;
+  box-shadow: 0px 0px 1px 1px rgba(102, 51, 153,1);
+}
+
+.borderanim{
+  position: relative;
+}
+
+.borderanim .ba{
+  border: 0;
+  padding: .5em;
+  width: 50%;
+  margin: 1em;
+  font-size: 1.1em;
+  outline: 0;
+  color: rebeccapurple;
+  background: white;
+  transition: all 0.3s cubic-bezier(.22,.6,.81,.4);
+  transition: all ease .4s;
+  box-sizing: border-box;
+  box-shadow:0px 0px 5px 1px rgba(51,51,51,.1), 1px 1px 5px -1px rgba(51,51,51,.2);
+}
+
+.ab::before{
+  content: '';
+  position: absolute;
+  top: 0em;
+  left: 0%;
+  border-radius: 50%;
+  border: 4px solid red;
+  background: white;
+  width: 50px;
+  z-index: -1;
+  height: 50px;
+  opacity: 0;
+}
+
+@keyframes anim1 {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    left: 25%;
+    opacity: .5;
+  }
+  100%{
+    left: 50%;
+    opacity: 0;
+  }
+}
+
+.ba:focus{
+  border: 1px solid red;
+}
+
+.ba:focus + .ab::before{
+  animation: anim1 1s forwards;
 }

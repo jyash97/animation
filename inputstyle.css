@@ -245,3 +245,33 @@ h2{
 .bor:focus + .borq::after{
   animation: anim4 forwards .6s;
 }
+
+.radio{
+  overflow: hidden;
+  margin: 2em;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.radio input[type=radio]{
+  display: none;
+  visibility: hidden;
+}
+
+.radio label{
+  display: inline-block;
+  padding: 1em;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  box-sizing: border-box;
+  float: left;
+  transition: all cubic-bezier(.05,.7,.95,.28) .2s;
+  background:tomato;
+}
+
+.radio input[type=radio]:checked + label{
+  background: rgba(255, 99, 71,.1);
+  color: tomato;
+  transform: scale(.98);
+}
